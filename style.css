@@ -24,4 +24,28 @@ button{
     box-shadow: 0 0 1em  .25 var(--glow-color),
                 0 0 4em  1em var(--glow-spread-color),    
                 inset 0 0 0 .75em .25em var(--glow-color);
+    text-shadow:0 0 .5em var(--glow-color);
+    position: relative;
+    transition: all 0.3s;            
+}
+button::after{
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left:0;
+    right: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: .7;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+button::hover{
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow: 0 0 1em .25em var(--glow-color),
+                 0 0 2em var(--glow-spread-color),
+                 inset 0 0 .5em .25em var(--glow-color);
+
 }
